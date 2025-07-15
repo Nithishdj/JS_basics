@@ -1,0 +1,10 @@
+a=20;
+b=24;
+add=a+b;
+sub=a-b;
+mul=a*b;
+div=a/b;
+console.log("The addition of given number is "+add);
+console.log("The subtraction of given number is "+sub);
+console.log("The multiplication of given number is "+mul);
+console.log("The division of given number is "+div);
