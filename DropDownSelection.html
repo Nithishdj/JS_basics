@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<select onchange="selectionChanged(this)">
+  <option value="">Choose a fruit</option>
+  <option value="Apple">Apple</option>
+  <option value="Banana">Banana</option>
+  <option value="Mango">Mango</option>
+</select>
+
+<p id="output"></p>
+
+<script>
+function selectionChanged(selectObj) {
+  let value = selectObj.value;
+  document.getElementById("output").innerHTML = "You selected: " + value;
+}
+</script>
+
+</body>
+</html>
