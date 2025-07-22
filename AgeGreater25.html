@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h3>Users above age 25:</h3>
+<p id="result"></p>
+
+<script>
+const users = [
+  { name: "Nithish", age: 21 },
+  { name: "Ajith", age: 26 },
+  { name: "Harish", age: 30 },
+  { name: "Naveen", age: 22 },
+  { name: "Sathish", age: 28 }
+];
+
+const above25 = users.filter(user => user.age > 25);
+
+document.getElementById("result").innerHTML =
+  above25.map(user => `${user.name} (${user.age})`).join(", ");
+</script>
+
+</body>
+</html>
