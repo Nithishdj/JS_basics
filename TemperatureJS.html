@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature</title>
+</head>
+<body>
+    <form>
+        Enter the Celsius: <input type="text" id="celsius" placeholder="Enter the Celsius"><br><br>
+        <input type="button" onclick="tempBy()" value="Find Fahrenheit">
+        <p>The Temperature:
+            <span id="result"></span>
+        </p>
+    </form>
+    <script>
+        function tempBy(){
+            temp1=document.getElementById("celsius").value;
+            document.getElementById("result").innerHTML=(temp1*1.8)+32+ "&degF";
+        }
+    </script>
+</body>
+</html>
