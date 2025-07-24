@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Break And Continue</title>
+</head>
+<body>
+    <form>
+        Enter the Number: <input type="number" id="number"><br><br>
+        <input type="button" onclick="breakBy()" value="Click here">
+        <p>Continue and break result:
+            <span id="result"></span>
+        </p>
+    </form>
+<script>
+    function breakBy(){
+        let a= parseFloat(document.getElementById("number").value);
+        let result;//intialize the result variable before loop
+        for(i=a;i<=a*5;i++){
+            if(i%5==0){
+                continue;//skips multiples of 5
+            }
+                result+=i+"<br>";
+        }
+        document.getElementById("result").innerHTML=result;
+    }
+</script>
+</body>
+</html>
