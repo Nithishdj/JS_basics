@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Grade</title>
+    <style>
+        body{
+            margin-top: auto;
+            margin-left: 35%;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+    </style>
+</head>
+<body>
+    <h2>Student Academic Report</h2>
+    <h4>Enter the marks</h4>
+    <form>
+    Tamil : <input type="number" id="tamil"><br><br>
+    English : <input type="number" id="english"><br><br>
+    Maths : <input type="number" id="maths"><br><br>
+    Science : <input type="number" id="science"><br><br>
+    Social : <input type="number" id="social"><br><br>
+    <input type="button" onclick="gradeBy()" value="Obtain Grade">
+    <p>The Grade is:
+        <span id="result"></span>
+    </p>
+</form>
+</body>
+<script>
+    function gradeBy(){
+        a= parseFloat(document.getElementById("tamil").value);
+        b= parseFloat(document.getElementById("english").value);
+        c= parseFloat(document.getElementById("maths").value);
+        d= parseFloat(document.getElementById("science").value);
+        e= parseFloat(document.getElementById("social").value);
+        let sum = a+b+c+d+e;
+        let avg= sum/5;
+        if(avg>=90&&avg<100){
+            document.getElementById("result").innerHTML="A+ and The Total is: "+sum;
+        }
+        else if(avg<90&&avg>=80){
+            document.getElementById("result").innerHTML="A and The Total is: "+sum;
+        }
+        else if(avg<80&&avg>=70){
+            document.getElementById("result").innerHTML="B+ and The Total is: "+sum;       
+        }
+        else if(avg<70&&avg>=60){
+            document.getElementById("result").innerHTML="B and The Total is: "+sum;           
+        }
+        else if(avg<60&&avg>=50){
+            document.getElementById("result").innerHTML="C and The Total is: "+sum;                 
+        }
+        else{
+            document.getElementById("result").innerHTML="Failed and The Total is: "+sum;                      
+        }
+    }
+</script>
+</html>
