@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odd Or Even Number</title>
+</head>
+<body>
+    <form>
+    Enter the number: <input type="text" id="number"><br><br>
+    <input type="button" onclick="oddOrEvenBy()" value="Click">
+    <p>The Result:
+        <span id="result"></span>
+    </form>
+    </p>
+</body>
+<script>
+    function oddOrEvenBy(){
+        num1=document.getElementById("number").value;
+        if(num1%2==0){
+            document.getElementById("result").innerHTML="Even Number";
+        }
+        else{
+            document.getElementById("result").innerHTML="Odd number";
+        }
+    }
+</script>
+</html>
