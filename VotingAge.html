@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting age</title>
+</head>
+<body>
+    <form>
+    <h2>Voting Age Eligibility Checker</h2>
+    Enter Your Age: <input type="number" id="age" placeholder="Enter Your Age"><br><br>
+    <input type="button" onclick="voteAge()" value="Click here">
+    <p>The Result: 
+        <span id="result"></span>
+    </p>
+    </form>
+</body>
+<script>
+    function voteAge(){
+       let age= parseFloat(document.getElementById("age").value);
+       rslt= age>=18 ? "You're Eligible To Vote" : "You're Not Eligible To Vote";
+       document.getElementById("result").innerHTML=rslt;
+    }
+</script>
+
+</html>
