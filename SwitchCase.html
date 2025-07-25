@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switch Case</title>
+</head>
+<body>
+    <form>
+        <h2>Single sentence astrology</h2>
+        Enter Your Birthday Date: <input type="number" placeholder="Enter Birth Date" id="birth"><br><br>
+        <input type="button" onclick="birthDay()" value="Click"> 
+        <p>The Result:
+            <span id="result"></span>
+        </p>
+    </form>
+</body>
+<script>
+    function birthDay(){
+        let a = parseFloat(document.getElementById("birth").value);
+        let message = "";  // Variable to store the message
+        switch (a) {
+            case 1:
+                message = "You are Pro At FullStack";
+                break;
+            case 2:
+                message = "Searching for the purpose of born";
+                break;
+            case 3:
+                message = "Always think about food";
+                break;
+            case 4:
+                message = "Born to Sleep";
+                break;
+            case 5:
+                message = "Looking Awesome";
+                break;
+            case 6:
+                message = "Acting Like Good Listener";
+                break;
+            case 7:
+                message = "Always Cool Like Dhoni";
+                break;
+            case 8:
+                message = "Think About Scary Future";
+                break;
+            case 9:
+                message = "Easily Jealous";
+                break;
+            case 10:
+                message = "Waiting for Future Partner";
+                break;
+            case 11:
+                message = "You're Great Singer";
+                break;
+            case 12:
+                message = "You Make Other's laugh but you can't";
+                break;
+            case 13:
+                message = "Your cooking is good but no one like that!";
+                break;
+            case 14:
+                message = "Be Ready For the Heart Break Moment";
+                break;
+            case 15:
+                message = "You Ate Too Much";
+                break;
+            case 16:
+                message = "You Got a Good Partner in the World";
+                break;
+            case 17:
+                message = "Too stressed by Thinking About Future";
+                break;
+            case 18:
+                message = "Your Smile was Beautiful but No One Want to See that";
+                break;
+            case 19:
+                message = "You're a Gossip Maker";
+                break;
+            case 20:
+                message = "You Have lot of Money Secretly";
+                break;
+            case 21:
+                message = "Big Joker in Your Gang";
+                break;
+            case 22:
+                message = "You did all the Cringes in the World";
+                break;
+            case 23:
+                message = "Expectation Kills Your Happiness";
+                break;
+            case 24:
+                message = "Marriage is Impossible";
+                break;
+            case 25:
+                message = "You'll got Triplets";
+                break;
+            case 26:
+                message = "Always Love to Travel";
+                break;
+            case 27:
+                message = "You're Funny but No One Laugh at You";
+                break;
+            case 28:
+                message = "Don't Try to Cook for Other's Health";
+                break;
+            case 29:
+                message = "Silently Upgrading Yourself";
+                break;
+            case 30:
+                message = "Don't Believe Your Friends";
+                break;
+            case 31:
+                message = "Born to Spread Positivity!";
+                break;
+            default:
+                message = `${a} is not a valid date (1 to 31)`;
+        }
+        document.getElementById("result").innerHTML = message;
+    }
+</script>
+</html>
