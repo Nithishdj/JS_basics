@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Palindrome Checker</title>
+</head>
+<body>
+
+<h3>Check Palindrome</h3>
+Enter a word: <input type="text" id="word"><br><br>
+<input type="button" onclick="checkPalindrome()" value="Check">
+<p id="result"></p>
+
+<script>
+function checkPalindrome() {
+  let word = document.getElementById("word").value;
+  let reversed = word.split("").reverse().join("");
+  
+  if (word === reversed) {
+    document.getElementById("result").innerHTML = `It is a palindrome `;
+  } else {
+    document.getElementById("result").innerHTML = `It is not a palindrome `;
+  }
+}
+</script>
+
+</body>
+</html>
