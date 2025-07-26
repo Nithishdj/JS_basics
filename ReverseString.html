@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse string</title>
+</head>
+<body>
+    <h3>Reverse string</h3>
+    Enter The Word: <input type="text" id="word"><br><br>
+    <input type="button" onclick="revBy()" value="Reverse">
+    <p>Reversed Word is--> 
+        <span id="result"></span>
+    </p>
+</body>
+<script>
+    function revBy(){
+        let a = document.getElementById("word").value;
+        let b = a.split("").reverse().join("");
+        document.getElementById("result").innerHTML=b;
+    }
+</script>
+</html>
