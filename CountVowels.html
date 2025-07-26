@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vowel Counter</title>
+</head>
+<body>
+
+<h3>Count Vowels in a Word</h3>
+
+Enter a word: <input type="text" id="inputWord"><br><br>
+<input type="button" value="Count Vowels" onclick="countVowelsByDOM()">
+
+<p>Number of vowels: <span id="result"></span></p>
+
+<script>
+function countVowelsByDOM() {
+  const str = document.getElementById("inputWord").value;
+  const vowels = str.match(/[aeiou]/gi);
+  const count = vowels ? vowels.length : 0;
+
+  document.getElementById("result").innerHTML = count;
+}
+</script>
+
+</body>
+</html>
