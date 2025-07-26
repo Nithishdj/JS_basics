@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial</title>
+</head>
+<body>
+    <h3>Factorial program</h3>
+    Enter the number: <input type="number" id="num"><br><br>
+    <input type="button" onclick="factBy()" value="Click">
+    <p>The Result is: 
+        <span id="result"></span>
+    </p>
+</body>
+</html>
+<script>
+    function factBy(){
+       let a = document.getElementById("num").value;
+        let fact=1;
+if (a === 0 || a === 1) {
+    console.log(1);
+} else {
+    for (let i = a; i >= 1; i--) {
+        fact *= i;
+    }
+    document.getElementById("result").innerHTML=fact;
+}
+}
+</script>
