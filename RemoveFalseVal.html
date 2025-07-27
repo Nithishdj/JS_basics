@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Remove False Values</title>
+</head>
+<body>
+
+<h3>Remove False Values from Array</h3>
+
+Enter array elements (comma-separated):<br>
+<input type="text" id="arrayInput" placeholder='e.g. 0, 1, false, 2, "", 3, null, undefined'><br><br>
+
+<input type="button" value="Clean Array" onclick="removeFalseValuesByDOM()">
+
+<p>Filtered Array: <span id="result"></span></p>
+
+<script>
+function removeFalseValuesByDOM() {
+  const input = document.getElementById("arrayInput").value;
+
+  // Convert input string to real values
+  const arr = input.split(",").map(item => {
+    item = item.trim();
+    if (item === "false") return false;
+    if (item === "null") return null;
+    if (item === "undefined") return undefined;
+    if (item === "") return "";
+    if (!isNaN(item)) return Number(item);
+    return item;
+  });
+
+  const filtered = arr.filter(Boolean);
+
+  document.getElementById("result").innerHTML = JSON.stringify(filtered);
+}
+</script>
+
+</body>
+</html>
