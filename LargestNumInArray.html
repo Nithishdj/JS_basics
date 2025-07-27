@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Find Largest Number</title>
+</head>
+<body>
+
+<h3>Find the Largest Number in an Array</h3>
+
+Enter array elements (comma-separated):  
+<input type="text" id="arrayInput" placeholder="e.g. 10, 50, 3, 90, 24"><br><br>
+
+<input type="button" value="Find Largest" onclick="findLargestByDOM()">
+
+<p>Largest Number: <span id="result"></span></p>
+
+<script>
+function findLargestByDOM() {
+  const input = document.getElementById("arrayInput").value;
+  const arr = input.split(",").map(Number);
+  const largest = Math.max(...arr);
+  document.getElementById("result").innerHTML = largest;
+}
+</script>
+
+</body>
+</html>
