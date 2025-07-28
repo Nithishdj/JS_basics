@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Interval Example</title>
+</head>
+<body>
+     <h2 id="counter">count: 0</h2>
+     <button id="startbtn">Start</button>
+     <button id="stopbtn">Stop</button>
+     <button id="resetbtn">Reset</button>
+    <script>
+         let count=0
+         let intervalid=null;
+         const Maxcount=20
+         const counterDisplay=document.getElementById("counter")
+
+         //start the counter
+         document.getElementById("startbtn")
+         .addEventListener("click",()=>{
+            
+            if(intervalid===null) //prevents multiple interals
+         {
+            intervalid=setInterval(()=>{
+               count++;
+               counterDisplay.innerText="count:"+count;
+            
+        if(count>=Maxcount) 
+        {
+            clearInterval(intervalid);
+            intervalid=null;
+        }
+            },1000);
+         }
+         });
+         //stop the counter
+          document.getElementById("stopbtn").addEventListener("click",()=>{
+              clearInterval(intervalid);
+              intervalid=null;
+          });
+
+          //Reset button 
+          document.getElementById("resetbtn")
+          .addEventListener("click",()=>{
+          clearInterval(intervalid);
+          intervalid=null
+          count=0
+          counterDisplay.innerText="count"+count;
+          });
+    </script>
+</body>
+</html>
