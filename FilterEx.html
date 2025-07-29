@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter numbers</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+           font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin: 50px;
+            background-color: rgb(218, 244, 192);
+            border: solid 2px;
+            padding: 10px;
+        }
+        #result{
+            color: rgb(45, 244, 5);
+        }
+    </style>
+</head>
+<body>
+    Enter the numbers: <input type="text" id="numbers" placeholder="eg - 13,64,43,12,90"><br><br>
+    <input type="button" value="Filter Numbers" onclick="fliterby()">
+    <p>The Filtered Numbers(Removing Divisible by 3 numbers) <br>
+        <span id="result"></span>
+    </p>
+</body>
+<script>
+    function fliterby(){
+    const num = document.getElementById("numbers").value;
+    const seperate = num.split(",").map(Number);
+
+    const filtered = seperate.filter(element => element %3 !== 0);
+
+    document.getElementById("result").innerHTML = filtered.join(","); 
+
+}
+</script>
+</html>
