@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login page</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .box
+        {   text-align: center;
+            padding: 50px;
+            display: inline-block;
+            border: 1px solid black;
+            height: 400px;
+            width: 300px;
+            background-color: powderblue;
+            border-radius: 10px;
+        }
+        .user,.pass
+        {   
+            background-color: powderblue;
+            cursor: pointer;
+            border: 2px solid black;
+            width: 150px;
+            height: 20px;
+            border-radius: 5px;
+        }
+        .user:hover{   
+            background-color: white;
+            transition: background-color 0.5s;
+        }
+        .pass:hover
+        {   
+            background-color: white;
+            transition: background-color 0.5s;
+        }
+        .btn{
+            cursor: pointer;
+            width: 80px;
+            height: 40px;
+            border-radius: 20px;
+            border: 3px solid black;
+            background-color: skyblue;
+        }
+        .btn:hover{
+            background-color: rgb(11, 150, 210);
+            transition: background-color 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>Sign-in</h1><br><br><br>
+    <label>Username : <input type="text" id="username" class="user"></label><br><br>
+    <label>Password : <input type="password" id="password" class="pass"></label><br><br><br><br>
+    <button onclick="handleLogin()" class="btn">Submit</button>
+    <br><br><br>
+    <h3 id="ErrorMsg"></h3>
+    </div>
+
+    <script>
+        const checkPass = (b) => {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve("Welcome");
+                }, 2000);
+            });
+        };
+
+        const handleLogin = async () => {
+            const a = document.getElementById('username').value;
+            const b = document.getElementById('password').value;
+
+            if (a==='admin' && b === '1234') {
+                document.getElementById('ErrorMsg').innerText = 'Please wait...';
+                const message = await checkPass(b);
+                document.getElementById('ErrorMsg').innerText = message;
+            } else {
+                document.getElementById('ErrorMsg').innerText = 'Sorry, cannot let you in';
+            }
+        };
+    </script>
+</body>
+</html>
