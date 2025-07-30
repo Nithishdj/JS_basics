@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapping Ex</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 40px;
+            text-align: center;
+        }
+         input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+           input[type="button"] {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+         input[type="button"]:hover {
+            background-color: #0bf016;
+        }
+         p {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+         #result {
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    Enter The Numbers: <input type="text" id="number" placeholder="eg - 12, 3, 45, 66, 87"><br><br>
+    <input type="button" value="Perform forEach" onclick="mapBy()">
+    <p>The Array after applying Map: <br>
+        <span id="result"></span>
+    </p>
+</body>
+<script>
+    function mapBy(){
+        let num = document.getElementById("number").value;
+        let seperate = num.split(",").map(Number);
+
+        let final = seperate.map((element)=>element * 2);
+        document.getElementById("result").innerHTML = final;
+    }
+</script>
+</html>
