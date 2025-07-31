@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Delayed Greeting</title>
+</head>
+<body>
+  <h2 id="greeting">Waiting for greeting...</h2>
+  <button onclick="greet()">Show Greeting</button>
+
+  <script>
+    function delayedGreeting() {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          resolve("Hello!");
+        }, 1000);
+      });
+    }
+
+    async function greet() {
+      const msg = await delayedGreeting();
+      document.getElementById("greeting").innerText = msg;
+    }
+  </script>
+</body>
+</html>
