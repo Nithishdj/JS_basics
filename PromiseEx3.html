@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Async Await with DOM</title>
+</head>
+<body>
+  <h2 id="output">Click the button to get result...</h2>
+  <button onclick="getResult()">Get Result</button>
+
+  <script>
+    // This function returns a Promise that resolves after 1 second
+    function delayedPromise() {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          // Resolve with "Done!"
+          resolve("Done!");
+
+          // Uncomment the line below to simulate an error
+          // reject("Something went wrong.");
+        }, 1000);
+      });
+    }
+
+    // Async function that waits for the Promise and updates the DOM
+    async function getResult() {
+      const output = document.getElementById("output");
+      output.innerText = "Waiting...";
+
+      try {
+        const result = await delayedPromise();
+        output.innerText = result;
+      } catch (error) {
+        output.innerText = "Error: " + error;
+      }
+    }
+  </script>
+</body>
+</html>
