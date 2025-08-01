@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Table</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: 0;
+        }
+        body{
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            background-color: #f2f2f2;
+            text-align: center;
+            margin-top: 30px;
+        }
+        input[type="number"]{
+            margin-top: 20px;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        button{
+            padding: 4px;
+            background-color: rgb(98, 231, 145);
+            color: white;
+            border: none;
+        }
+        p{
+            margin-top: 10px;
+        }
+        button:hover{
+            background-color: rgb(27, 145, 96);
+        }
+        #result{
+            font-size: 16px;
+            margin-top: 10px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h2>Multiplication Table</h2>
+    Enter the number : <input type="number" id="number" placeholder="enter a number"><br><br>
+    <button onclick="mulOf()">Multiply Table</button>
+    <p>Here the multiply table below <br>
+        <span id="result"></span>
+    </p>
+    <script>
+        function mulOf(){
+            let num = parseFloat(document.getElementById("number").value);
+            let mul= "";
+            for(i=1;i<=10;i++){
+                mul += `${num} x ${i} = ${i*num}<br>`;
+            }
+            document.getElementById("result").innerHTML = mul;
+        }
+    </script>
+</body>
+</html>
