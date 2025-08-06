@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Clothing Store</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      font-size: 16px;
+    }
+
+    .result-table {
+      margin: 30px auto;
+      width: 50%;
+      border-collapse: collapse;
+    }
+
+    .result-table th, .result-table td {
+      border: 1px solid #444;
+      padding: 10px;
+    }
+
+    .result-table th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Enter Clothing Item Name</h2>
+  <input type="text" id="productInput" placeholder="e.g. Shirt">
+  <button onclick="searchProduct()">Search</button>
+
+  <div id="result"></div>
+
+  <script src="classEx.js">
+  </script>
+
+</body>
+</html>
