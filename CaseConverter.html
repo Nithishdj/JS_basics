@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Case Converter</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        textarea { width: 100%; height: 100px; padding: 10px; font-size: 16px; }
+        button { padding: 8px 12px; margin: 5px; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+    <h2>Uppercase / Lowercase Converter</h2>
+    <textarea id="textArea" placeholder="Type your text here..."></textarea><br>
+    <button id="upperBtn">Uppercase</button>
+    <button id="lowerBtn">Lowercase</button>
+
+    <script>
+        const textArea = document.getElementById("textArea");
+        const upperBtn = document.getElementById("upperBtn");
+        const lowerBtn = document.getElementById("lowerBtn");
+
+        upperBtn.addEventListener("click", () => {
+            textArea.value = textArea.value.toUpperCase();
+        });
+
+        lowerBtn.addEventListener("click", () => {
+            textArea.value = textArea.value.toLowerCase();
+        });
+    </script>
+
+</body>
+</html>
