@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Random Quote Generator (DOM)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    :root { --bg:#0f172a; --card:#111827; --text:#e5e7eb; --muted:#9ca3af; --accent:#22d3ee; }
+    * { box-sizing: border-box; }
+    body{
+      margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+      background: radial-gradient(1200px 700px at 50% -20%, #1f2937 0%, #0b1020 60%, #060912 100%);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:var(--text);
+      padding: 24px;
+    }
+    .card{
+      width:min(680px, 96vw); background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border:1px solid rgba(255,255,255,0.06); border-radius:18px; padding:24px 22px; box-shadow:0 12px 40px rgba(2,6,23,.6);
+    }
+    h1{ margin:0 0 10px; font-size:20px; letter-spacing:.3px; color:var(--accent); text-align:center; }
+    blockquote{
+      margin:12px 6px; padding:0; font-size:22px; line-height:1.5; position:relative;
+    }
+    blockquote::before{
+      content:"“"; font-size:48px; color:var(--accent); position:absolute; left:-14px; top:-8px; opacity:.6;
+    }
+    .author{ margin-top:10px; color:var(--muted); font-size:15px; text-align:right; }
+    .controls{ display:flex; gap:10px; justify-content:center; margin-top:18px; flex-wrap:wrap; }
+    button{
+      border:none; padding:10px 14px; border-radius:10px; cursor:pointer; font-weight:600;
+      background: rgba(255,255,255,.08); color:var(--text); transition: transform .08s ease, background .15s ease;
+    }
+    button:hover{ transform:translateY(-2px); background: rgba(255,255,255,.12); }
+    .primary{ background: linear-gradient(90deg, #22d3ee, #60a5fa); color:#06121a; }
+    .hint{ margin-top:8px; text-align:center; font-size:12px; color:var(--muted); }
+    .fade{ animation: fade .25s ease; }
+    @keyframes fade { from{opacity:0; transform:translateY(4px)} to{opacity:1; transform:translateY(0)} }
+  </style>
+</head>
+<body>
+  <div class="card" role="region" aria-label="Random quote generator">
+    <h1>Random Quote Generator</h1>
+
+    <blockquote id="quote" class="fade">Click “New Quote” to begin.</blockquote>
+    <div id="author" class="author"></div>
+
+    <div class="controls">
+      <button id="newBtn" class="primary">New Quote</button>
+      <button id="copyBtn" title="Copy quote to clipboard">Copy</button>
+    </div>
+
+    <div class="hint">Tip: press <kbd>Space</kbd> for a new quote.</div>
+  </div>
+
+  <script src="RandomQuote.js">
+   
+  </script>
+</body>
+</html>
+            
