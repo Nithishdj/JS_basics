@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rainbow Text (DOM)</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+    #rainbow {
+      font-size: 36px;
+      font-weight: bold;
+      text-align: center;
+    }
+    input, button {
+      margin-top: 15px;
+      padding: 8px 12px;
+      font-size: 16px;
+    }
+    .container {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="rainbow"></div>
+    <br>
+    <input id="textInput" type="text" placeholder="Type text..." value="Rainbow Text 🌈">
+    <button id="applyBtn">Apply</button>
+  </div>
+
+  <script src="RainbowText.js">
+    
+  </script>
+</body>
+</html>
