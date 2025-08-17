@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Marquee Text with DOM</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+    .marquee-container {
+      width: 400px;
+      height: 40px;
+      overflow: hidden;
+      border: 2px solid white;
+      position: relative;
+    }
+    #marquee {
+      position: absolute;
+      white-space: nowrap;
+      font-size: 22px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="marquee-container">
+    <div id="marquee">✨ Welcome to JavaScript DOM Marquee Effect ✨</div>
+  </div>
+
+  <script src="MarqueeText.js">
+   
+  </script>
+</body>
+</html>
