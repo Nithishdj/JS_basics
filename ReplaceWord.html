@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Input Replace Words</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background-color: #d9dede;
+    }
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    input, button {
+      margin-top: 10px;
+      padding: 6px 12px;
+      font-size: 16px;
+    }
+    label{
+        color: rgb(23, 23, 225);
+        font-weight: bold;
+    }
+    button{
+        border: none;
+        background-color: rgb(62, 190, 199);
+        color: white;
+        border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <p id="text">
+    JavaScript is a powerful programming language. Many developers love JavaScript 
+    because JavaScript makes web pages interactive.
+  </p>
+
+  <label>Find: <input type="text" id="findWord" placeholder="Word to replace"></label>
+  <br>
+  <label>Replace with: <input type="text" id="replaceWord" placeholder="New word"></label>
+  <br>
+  <center><button id="replaceBtn">Replace</button></center>
+
+  <script src="ReplaceWord.js">
+    
+  </script>
+</body>
+</html>
