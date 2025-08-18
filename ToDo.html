@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Interactive Todo List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background: #f9f9f9;
+    }
+    input, button {
+      padding: 8px 14px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #45a049;
+    }
+    ul {
+      margin-top: 20px;
+      padding: 0;
+      list-style: none;
+      width: 300px;
+    }
+    li {
+      margin: 6px 0;
+      padding: 10px 14px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: transform 0.2s ease;
+    }
+    li:nth-child(odd) {
+      background: #f0f8ff;
+    }
+    li:hover {
+      transform: scale(1.05);
+    }
+    .deleteBtn {
+      background: #e74c3c;
+      color: white;
+      border: none;
+      padding: 6px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .deleteBtn:hover {
+      background: #c0392b;
+    }
+  </style>
+</head>
+<body>
+  <h2>✨ Interactive Todo List</h2>
+
+  <input type="text" id="itemInput" placeholder="Enter item">
+  <button id="addBtn">Add Item</button>
+
+  <ul id="itemList"></ul>
+
+  <script src="ToDo.js">
+    
+  </script>
+</body>
+</html>
