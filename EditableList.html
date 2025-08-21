@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Editable List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background: #f4f6f9;
+    }
+    h2 {
+      color: #333;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      width: 300px;
+    }
+    li {
+      margin: 8px 0;
+      padding: 10px 14px;
+      background: #fff;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    li:hover {
+      background: #e9f7ef;
+    }
+    input.edit {
+      width: 90%;
+      padding: 6px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h2>✏️ Editable List</h2>
+
+  <ul id="itemList">
+    <li>Learn JavaScript</li>
+    <li>Practice DOM</li>
+    <li>Build Projects</li>
+    <li>Revise Concepts</li>
+  </ul>
+
+  <script src="EditableList.js">
+    
+  </script>
+</body>
+</html>
