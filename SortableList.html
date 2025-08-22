@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sortable List (Drag & Drop)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background: #f4f6f9;
+    }
+    h2 {
+      color: #333;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      width: 300px;
+    }
+    li {
+      margin: 8px 0;
+      padding: 10px 14px;
+      background: #fff;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      cursor: grab;
+      transition: background 0.2s, transform 0.2s;
+    }
+    li:active {
+      cursor: grabbing;
+      background: #d6e9ff;
+      transform: scale(1.05);
+    }
+    .drag-over {
+      border: 2px dashed #007bff;
+    }
+  </style>
+</head>
+<body>
+  <h2>🔀 Sortable List (Drag & Drop)</h2>
+
+  <ul id="sortableList">
+    <li draggable="true">Learn JavaScript</li>
+    <li draggable="true">Practice DOM</li>
+    <li draggable="true">Build Projects</li>
+    <li draggable="true">Revise Concepts</li>
+    <li draggable="true">Do Daily Tasks</li>
+  </ul>
+
+  <script src="SortableList.js">
+   
+  </script>
+</body>
+</html>
