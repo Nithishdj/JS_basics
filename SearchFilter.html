@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Live Search Filter • Vanilla DOM</title>
+  <style>
+    :root {
+      --bg: #0b0d12;
+      --panel: #131722;
+      --muted: #8b93a7;
+      --text: #e8ecf1;
+      --accent: #5e9cff;
+      --ring: #3a69ff44;
+      --border: #232838;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text);
+      background: radial-gradient(1200px 700px at 10% -10%, #16203a 0%, transparent 60%),
+                  radial-gradient(900px 500px at 90% 110%, #1a263f 0%, transparent 60%),
+                  var(--bg);
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+    .card {
+      width: min(720px, 95vw);
+      background: linear-gradient(180deg, #141a28, #111522);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      overflow: hidden;
+    }
+    .header {
+      padding: 18px 18px 8px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(180deg, #12192a, #111828);
+    }
+    .title { font-weight: 700; letter-spacing: .2px; }
+    .muted { color: var(--muted); font-size: 14px; }
+
+    .search {
+      position: relative;
+      padding: 16px 18px 20px;
+      border-bottom: 1px solid var(--border);
+      background: var(--panel);
+    }
+    .search input[type="text"] {
+      width: 100%;
+      padding: 12px 14px 12px 40px;
+      border: 1px solid var(--border);
+      background: #0e1320;
+      color: var(--text);
+      border-radius: 12px;
+      outline: none;
+      transition: border .15s ease, box-shadow .15s ease;
+    }
+    .search input[type="text"]:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 6px var(--ring);
+    }
+    .search .icon {
+      position: absolute; left: 30px; top: 28px; pointer-events: none; opacity: .75;
+    }
+
+    .list {
+      max-height: 420px;
+      overflow: auto;
+      background: #0d1220;
+    }
+    .list ul { list-style: none; margin: 0; padding: 8px; }
+    .list li {
+      padding: 12px 14px;
+      border: 1px solid transparent;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      transition: background .15s ease, border .15s ease;
+    }
+    .list li + li { margin-top: 6px; }
+    .list li:hover { background: #0f1629; border-color: #1e2436; }
+    .badge {
+      font-size: 12px; padding: 4px 8px; border-radius: 999px; border: 1px solid #2a3551; color: #afbbd8; background: #121a31;
+    }
+    mark { background: #2b3b6b; color: #eaf2ff; padding: 0 2px; border-radius: 4px; }
+
+    .footer {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 16px; border-top: 1px solid var(--border); background: #0e1426;
+    }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+  </style>
+</head>
+<body>
+  <div class="card" role="application" aria-label="Live Search Filter">
+    <div class="header">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M21 21l-4.35-4.35M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+      <div>
+        <div class="title">Search filter</div>
+        <div class="muted">Filter list items as you type (vanilla JS)</div>
+      </div>
+    </div>
+
+    <div class="search">
+      <label for="q" class="sr-only">Filter items</label>
+      <input id="q" type="text" placeholder="Type to filter… (e.g., apple, pro, 2024)" autocomplete="off" spellcheck="false" aria-describedby="count" />
+      <div class="icon" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21 21l-4.35-4.35M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="list" id="list" role="listbox" aria-label="Results list">
+      <ul id="items">
+        <!-- Example dataset (mix of names, categories, years). Add your own! -->
+        <li data-tags="fruit fresh usa 2024">Apple Gala <span class="badge">Fruit • 2024</span></li>
+        <li data-tags="laptop pro 14-inch 2023">OrionBook Pro 14 <span class="badge">Laptop • 2023</span></li>
+        <li data-tags="fruit tropical india 2025">Mango Alphonso <span class="badge">Fruit • 2025</span></li>
+        <li data-tags="headphones wireless anc 2022">QuietBeat X <span class="badge">Audio • 2022</span></li>
+        <li data-tags="framework js web 2024">NovaJS 3.0 <span class="badge">Framework • 2024</span></li>
+        <li data-tags="camera mirrorless 4k 2021">Lumixor Z6 <span class="badge">Camera • 2021</span></li>
+        <li data-tags="fruit citrus spain 2023">Orange Navel <span class="badge">Fruit • 2023</span></li>
+        <li data-tags="tablet oled 11-inch 2024">Slate Eleven OLED <span class="badge">Tablet • 2024</span></li>
+        <li data-tags="framework css utility 2022">FeatherCSS <span class="badge">CSS • 2022</span></li>
+        <li data-tags="game rpg fantasy 2025">Mythbound <span class="badge">Game • 2025</span></li>
+        <li data-tags="book fiction sci-fi 2020">Starlight Drift <span class="badge">Book • 2020</span></li>
+        <li data-tags="phone android camera 2024">ZenPixel 9 <span class="badge">Phone • 2024</span></li>
+        <li data-tags="fruit berry 2024">Blueberry <span class="badge">Fruit • 2024</span></li>
+        <li data-tags="laptop air 13-inch 2022">FeatherBook Air 13 <span class="badge">Laptop • 2022</span></li>
+        <li data-tags="os linux 2024">NebulaOS <span class="badge">OS • 2024</span></li>
+      </ul>
+    </div>
+
+    <div class="footer">
+      <div id="count" aria-live="polite" aria-atomic="true" class="muted">15 items • 15 visible</div>
+      <div class="muted">Tip: separate terms with a space</div>
+    </div>
+  </div>
+
+  <script src="SearchFilter.js">
+   
+  </script>
+</body>
+</html>
