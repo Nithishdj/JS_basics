@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Delete Table Row (DOM)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      padding: 40px;
+    }
+    h2 {
+      color: #333;
+    }
+    input {
+      margin: 5px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      padding: 8px 12px;
+      margin: 5px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    #addBtn {
+      background: #007bff;
+      color: white;
+    }
+    #addBtn:hover {
+      background: #0056b3;
+    }
+    .deleteBtn {
+      background: crimson;
+      color: white;
+    }
+    .deleteBtn:hover {
+      background: darkred;
+    }
+    table {
+      margin-top: 20px;
+      border-collapse: collapse;
+      width: 80%;
+      background: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background: #007bff;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Dynamic Table with Delete Row</h2>
+  
+  <input type="text" id="name" placeholder="Enter Name">
+  <input type="number" id="age" placeholder="Enter Age">
+  <input type="text" id="city" placeholder="Enter City">
+  <button id="addBtn" onclick="addRow()">Add Row</button>
+
+  <table id="studentTable">
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>City</th>
+      <th>Action</th>
+    </tr>
+  </table>
+
+  <script src="DeleteRow.js">
+   
+  </script>
+
+</body>
+</html>
