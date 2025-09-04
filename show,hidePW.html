@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Toggle</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+    .input-container {
+      position: relative;
+      width: 250px;
+    }
+    input {
+      width: 100%;
+      padding: 8px 35px 8px 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .toggle {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      font-size: 18px;
+      color: #555;
+    }
+    .toggle:hover {
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Show/Hide Password Toggle</h2>
+
+  <div class="input-container">
+    <input type="password" id="password" placeholder="Enter password">
+    <span id="toggle" class="toggle">👁️</span>
+  </div>
+
+  <script src="show,hidePW.js">
+   
+  </script>
+
+</body>
+</html>
