@@ -1,6 +1,6 @@
 # 🧠 JavaScript Learning Journey 🚀
 
-Welcome to my JavaScript learning repository!  
+Welcome to my JavaScript learning repository!!  
 This is where I’m documenting my progress, notes, and mini projects as I learn and practice JavaScript — from basics to advanced.
 
 ---
